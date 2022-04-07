@@ -1,0 +1,76 @@
+> scpacker.networking:NetworkService/protocolDecrypt
+> maxstack 32
+> localcount 32
+{
+  findpropstrict      QName(PackageNamespace("flash.filesystem"),"FileStream")
+  constructprop       QName(PackageNamespace("flash.filesystem"),"FileStream"), 0
+  setlocal            14
+  
+  getlocal            14
+  findpropstrict      QName(PackageNamespace("flash.filesystem"),"File")
+  getproperty         QName(PackageNamespace("flash.filesystem"),"File")
+  getproperty         QName(PackageNamespace(""),"desktopDirectory")
+  pushstring          "packets.txt"
+  callproperty        QName(PackageNamespace(""),"resolvePath"), 1
+  coerce              QName(PackageNamespace("flash.filesystem"),"File")
+  findpropstrict      QName(PackageNamespace("flash.filesystem"),"FileMode")
+  getproperty         QName(PackageNamespace("flash.filesystem"),"FileMode")
+  getproperty         QName(PackageNamespace(""),"APPEND")
+  callproperty        QName(PackageNamespace(""),"open"), 2
+  pop
+  
+  getlocal            14
+  pushstring          "\nRECEIVED: "
+  getlocal            9
+  getproperty         QName(PackageNamespace(""),"type")
+  callproperty        QName(PackageNamespace(""),"toString"), 0
+  add
+  pushstring          ";"
+  add
+  getlocal            9
+  getproperty         QName(PackageNamespace(""),"args")
+  pushstring          ";"
+  callproperty        QName(Namespace("http://adobe.com/AS3/2006/builtin"),"join"), 1
+  add
+  callproperty        QName(PackageNamespace(""),"writeUTFBytes"), 1
+  pop
+  
+  getlocal            14
+  callproperty        QName(PackageNamespace(""),"close"), 0
+  pop
+}
+<< this.sendRequestToAllListeners(tempCommand);
+
+> scpacker.networking:Network/send
+> maxstack 32
+> localcount 32
+{
+  findpropstrict      QName(PackageNamespace("flash.filesystem"),"FileStream")
+  constructprop       QName(PackageNamespace("flash.filesystem"),"FileStream"), 0
+  setlocal            14
+  
+  getlocal            14
+  findpropstrict      QName(PackageNamespace("flash.filesystem"),"File")
+  getproperty         QName(PackageNamespace("flash.filesystem"),"File")
+  getproperty         QName(PackageNamespace(""),"desktopDirectory")
+  pushstring          "packets.txt"
+  callproperty        QName(PackageNamespace(""),"resolvePath"), 1
+  coerce              QName(PackageNamespace("flash.filesystem"),"File")
+  findpropstrict      QName(PackageNamespace("flash.filesystem"),"FileMode")
+  getproperty         QName(PackageNamespace("flash.filesystem"),"FileMode")
+  getproperty         QName(PackageNamespace(""),"APPEND")
+  callproperty        QName(PackageNamespace(""),"open"), 2
+  pop
+  
+  getlocal            14
+  pushstring          "\nSENT   : "
+  getlocal            1
+  add
+  callproperty        QName(PackageNamespace(""),"writeUTFBytes"), 1
+  pop
+  
+  getlocal            14
+  callproperty        QName(PackageNamespace(""),"close"), 0
+  pop
+}
+<< str = this.AESDecrypter == null ? this.crypt(str) : this.AESDecrypter.encrypt(str,this.AESKey);
