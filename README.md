@@ -31,3 +31,12 @@ Example usage (PowerShell):
 ```powershell
 Get-Content battle.txt | node ./packet2map.js | Set-Content map.json
 ```
+
+## [strip-packets.js](strip-packets.js)
+
+Extracts resource and battle model init packets from dump.
+
+Example usage (PowerShell):
+```powershell
+Get-Content battle.txt | node ./strip-packets.js | node ./packet2map.js | Set-Content map.json
+```
