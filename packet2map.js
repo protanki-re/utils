@@ -92,8 +92,10 @@ const spawnPoints = xml['spawn-points']['spawn-point'];
 const flags = xml['ctf-flags'];
 
 let points = [];
-if(xml['dom-keypoints']['dom-keypoint']) points = xml['dom-keypoints']['dom-keypoint'];
-if(!(points instanceof Array)) points = [points];
+if(xml['dom-keypoints']) {
+  if(xml['dom-keypoints']['dom-keypoint']) points = xml['dom-keypoints']['dom-keypoint'];
+  if(!(points instanceof Array)) points = [points];
+}
 
 let theme;
 if(visual.mapTheme === 'SUMMER') theme = 'summer_day';
@@ -176,7 +178,7 @@ ${spawnPoints.map((point) => {
 
   return `    {\n${values.map((value) => `      ${value}`).join(',\n')}\n    }`;
 }).join(',\n')}
-  ],
+  ]${flags ? `,
   "flags": {
     "RED": {
       "position": { "x": ${JSON.stringify(flags['flag-red'].x ?? 0)}, "y": ${JSON.stringify(flags['flag-red'].y ?? 0)}, "z": ${JSON.stringify(flags['flag-red'].z ?? 0)} }
@@ -184,7 +186,7 @@ ${spawnPoints.map((point) => {
     "BLUE": {
       "position": { "x": ${JSON.stringify(flags['flag-blue'].x ?? 0)}, "y": ${JSON.stringify(flags['flag-blue'].y ?? 0)}, "z": ${JSON.stringify(flags['flag-blue'].z ?? 0)} }
     }
-  },
+  }` : ''}${points.length > 0 ? `,
   "points": [
 ${points.map((point) => {
   return `    {
@@ -194,7 +196,7 @@ ${points.map((point) => {
       "position": { "x": ${JSON.stringify(Number(point.position.x) ?? 0)}, "y": ${JSON.stringify(Number(point.position.y) ?? 0)}, "z": ${JSON.stringify(Number(point.position.z) ?? 0)} }
     }`;
 }).join(',\n')}
-  ]
+  ]` : ''}
 }`;
 
 console.log(result);

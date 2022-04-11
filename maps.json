@@ -112,7 +112,7 @@
     "minRank": 4, "supportedModes": [ "DM", "TDM", "CTF", "CP" ], "theme": "WINTER"
   },
   {
-    "enabled": true, "mapId": "map_deathtrack", "mapName": "ТреÐº", "maxPeople": 24, "preview": 72909, "maxRank": 30,
+    "enabled": true, "mapId": "map_deathtrack", "mapName": "Трек", "maxPeople": 24, "preview": 72909, "maxRank": 30,
     "minRank": 9, "supportedModes": [ "DM", "TDM", "CTF", "CP" ], "theme": "SUMMER"
   },
   {
@@ -368,6 +368,10 @@
     "minRank": 7, "supportedModes": [ "DM", "TDM", "CTF", "CP" ], "theme": "SUMMER_NIGHT"
   },
   {
+    "enabled": true, "mapId": "map_madness_old", "mapName": "Старое Безумие", "maxPeople": 32, "preview": 678653, "maxRank": 30,
+    "minRank": 10, "supportedModes": [ "DM", "TDM", "CTF" ], "theme": "SPACE"
+  },
+  {
     "enabled": true, "mapId": "map_polygon", "mapName": "Полигон", "maxPeople": 16, "preview": 891846, "maxRank": 30,
     "minRank": 5, "supportedModes": [ "DM", "TDM", "CTF", "CP" ], "theme": "SUMMER"
   },
@@ -494,6 +498,10 @@
   {
     "enabled": true, "mapId": "map_dualiti", "mapName": "Дуалити", "maxPeople": 6, "preview": 165105, "maxRank": 30,
     "minRank": 11, "supportedModes": [ "DM", "TDM", "CTF", "CP" ], "theme": "WINTER"
+  },
+  {
+    "enabled": true, "mapId": "map_silence_moon", "mapName": "Лунная Тишина", "maxPeople": 20, "preview": 952789, "maxRank": 30,
+    "minRank": 7, "supportedModes": [ "DM", "TDM", "CTF" ], "theme": "SPACE"
   },
   {
     "enabled": true, "mapId": "map_highway", "mapName": "Шоссе", "maxPeople": 24, "preview": 984755, "maxRank": 30,
