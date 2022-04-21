@@ -40,7 +40,7 @@ ${regions.map((region) => {
       `"name": ${JSON.stringify(region.$name)}`,
       `"free": ${JSON.stringify(region.$free === 'true' ? true : false)}`,
       `"types": [ ${types.join(', ')} ]`,
-      `"modes": ${modes.length > 0 ? `[ ${modes.map((mode) => JSON.stringify(mode.toUpperCase())).join(', ')} ]` : `[ ]`}`,
+      `"modes": ${modes.length > 0 ? `[ ${modes.map((mode) => JSON.stringify((mode === 'dom' ? 'cp' : mode).toUpperCase())).join(', ')} ]` : `[ ]`}`,
       `"parachute": ${JSON.stringify(region.$parachute === 'true' ? true : false)}`,
       region.min && region.max ? [
         `"position": {
