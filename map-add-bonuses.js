@@ -24,6 +24,7 @@ ${regions.map((region) => {
     if(!(modes instanceof Array)) modes = [modes];
 
     let types = region['bonus-type'];
+    if(!types) types = [];
     if(!(types instanceof Array)) types = [types];
     
     types = types.map((type) => {
@@ -33,6 +34,7 @@ ${regions.map((region) => {
       if(type === 'nitro') return 'nitro';
       if(type === 'crystal') return 'crystal';
       if(type === 'crystal_100') return 'gold';
+      if(type === 'crystal_500') return 'gold';
       throw new Error(`Unknown bonus: ${type}`);
     }).map((value) => JSON.stringify(value));
 

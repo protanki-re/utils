@@ -1,3 +1,5 @@
+import { PassThrough } from 'stream';
+
 export async function read(stream) {
   const chunks = [];
   for await(const chunk of stream) chunks.push(chunk); 
@@ -24,4 +26,46 @@ export function encodeId(id, version) {
     version.toString(8);
 
   return encoded;
+}
+
+/**
+ * @typedef FileInfo
+ * @property {string} name
+ * @property {number} size
+ */
+
+export function taraRead(/** @type {Buffer} */ buffer) {
+  const stream = new PassThrough();
+  stream.write(buffer);
+
+  // console.log(buffer)
+
+  /** @type {FileInfo} */
+  const fileTable = [];
+  /** @type {Record<string, Buffer>} */
+  const files = {};
+
+  const entriesCount = stream.read(4).readInt32BE();
+  // console.log(`Entries: ${entriesCount}`);
+  
+  for(let index = 0; index < entriesCount; index++) {
+    const nameLength = stream.read(2).readUInt16BE();
+    // console.log('name length', nameLength);
+    fileTable.push({
+      name: stream.read(nameLength).toString(),
+      size: stream.read(4).readInt32BE()
+    });
+  }
+  // console.log(fileTable);
+
+  for(const file of fileTable) {
+    // console.log(`Reading ${stream.readableLength} / ${file.size}`)
+
+    /** @type {Buffer} */
+    const data = stream.read(file.size);
+
+    files[file.name] = data;
+  }
+
+  return files;
 }
