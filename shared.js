@@ -28,6 +28,10 @@ export function encodeId(id, version) {
   return encoded;
 }
 
+export function toLong(high, low) {
+  return BigInt(high) << 32n | BigInt(low)
+}
+
 /**
  * @typedef FileInfo
  * @property {string} name
