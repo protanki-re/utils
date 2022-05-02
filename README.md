@@ -24,7 +24,7 @@ Example usage (PowerShell):
 
 ## [Patch-Prelauncher-Local.ps1](Patch-Prelauncher-Local.ps1)
 
-PowerShell script that patches `Prelauncher.swf` (`http://s2.protanki-online.com/Prelauncher.swf`) to use custom loader, game and resource server configuration.  
+PowerShell script that patches `Prelauncher.swf` (`http://s2.protanki-online.com/Prelauncher.swf`) to use custom loader, game library, game and resource server configuration.  
 Requires [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-decompiler) to be installed.  
 
 | Argument         | Type      | Description                                                      | Default value                            |
@@ -33,6 +33,17 @@ Requires [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-dec
 | `OutputFile`     | `string`  | Patched SWF file                                                 |                                          |
 | `FFDec`          | `string`  | Path to `ffdec.jar` file                                         | `C:\Program Files (x86)\FFDec\ffdec.jar` |
 | `ConfigFile`     | `string?` | Path / URL to the configuration file                             | `socket.cfg`                             |
+
+Example configuration file:
+```json
+{
+	"ip": "127.0.0.1",
+	"port": 1337,
+	"loader": "Loader.swf",
+	"library": "library.swf",
+	"resources": "http://127.0.0.1:8080/resource"
+}
+```
 
 Example usage (PowerShell):
 ```powershell
