@@ -16,10 +16,10 @@ The minimum supported game version is `library-20220501-221826`.
 
 Example usage (PowerShell):
 ```powershell
-./Patch-Library-Socket -InputFile 'library-original.swf' -OutputFile 'library.swf'
+./Patch-Library-LegacySocket -InputFile 'library-original.swf' -OutputFile 'library.swf'
 
 # Use custom ffdec.jar
-./Patch-Library-Socket -InputFile 'library-original.swf' -OutputFile 'library.swf' -FFDec 'ffdec.jar'
+./Patch-Library-LegacySocket -InputFile 'library-original.swf' -OutputFile 'library.swf' -FFDec 'ffdec.jar'
 ```
 
 ## [Patch-Prelauncher-Local.ps1](Patch-Prelauncher-Local.ps1)
