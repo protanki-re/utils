@@ -5,8 +5,8 @@ A bunch of utilities for ProTanki.
 ## [Patch-Library-Socket.ps1](Patch-Library-Socket.ps1)
 
 PowerShell script that patches `library.swf` (`http://s2.protanki-online.com/library.swf`) to use custom game and/or resource server.  
-Requires [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-decompiler) to be installed.
-The minimum supported version is `library-20220501-221826`.
+Requires [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-decompiler) to be installed.  
+The minimum supported game version is `library-20220501-221826`.
 
 | Argument         | Type      | Description                                                      | Default value                            |
 |------------------|-----------|------------------------------------------------------------------|------------------------------------------|
