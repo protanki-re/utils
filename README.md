@@ -37,11 +37,11 @@ Requires [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-dec
 Example configuration file:
 ```json
 {
-	"ip": "127.0.0.1",
-	"port": 1337,
-	"loader": "Loader.swf",
-	"library": "library.swf",
-	"resources": "http://127.0.0.1:8080/resource"
+  "ip": "127.0.0.1",
+  "port": 1337,
+  "loader": "Loader.swf",
+  "library": "library.swf",
+  "resources": "http://127.0.0.1:8080/resource"
 }
 ```
 
