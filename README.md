@@ -22,6 +22,33 @@ Example usage (PowerShell):
 ./Patch-Library-Socket -InputFile 'library-original.swf' -OutputFile 'library.swf' -FFDec 'ffdec.jar'
 ```
 
+## [Patch-Prelauncher-Local.ps1](Patch-Prelauncher-Local.ps1)
+
+PowerShell script that patches `Prelauncher.swf` (`http://s2.protanki-online.com/Prelauncher.swf`) to use custom loader, game and resource server configuration.  
+Requires [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-decompiler) to be installed.  
+
+| Argument         | Type      | Description                                                      | Default value                            |
+|------------------|-----------|------------------------------------------------------------------|------------------------------------------|
+| `InputFile`      | `string`  | Prelauncher SWF to patch                                         |                                          |
+| `OutputFile`     | `string`  | Patched SWF file                                                 |                                          |
+| `FFDec`          | `string`  | Path to `ffdec.jar` file                                         | `C:\Program Files (x86)\FFDec\ffdec.jar` |
+| `ConfigFile`     | `string?` | Path / URL to the configuration file                             | `socket.cfg`                             |
+
+Example usage (PowerShell):
+```powershell
+# Default configuration file (socket.cfg)
+./Patch-Prelauncher-Local -InputFile 'Prelauncher-original.swf' -OutputFile 'Prelauncher.swf'
+
+# Local configuration file
+./Patch-Prelauncher-Local -InputFile 'Prelauncher-original.swf' -OutputFile 'Prelauncher.swf' -ConfigFile 'my-config.json'
+
+# Configuration file on the remote server
+./Patch-Prelauncher-Local -InputFile 'Prelauncher-original.swf' -OutputFile 'Prelauncher.swf' -ConfigFile 'http://127.0.0.1/socket.cfg'
+
+# Use custom ffdec.jar
+./Patch-Prelauncher-Local -InputFile 'Prelauncher-original.swf' -OutputFile 'Prelauncher.swf' -FFDec 'ffdec.jar'
+```
+
 ## [Patch-Library-Socket.ps1](Patch-Library-Socket.ps1)
 
 PowerShell script that patches `library.swf` (`http://s2.protanki-online.com/library.swf`) to use custom game and/or resource server.  
