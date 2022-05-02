@@ -16,7 +16,7 @@ Write-Output ">>> Patching $InputFile -> $OutputFile"
 
 if($PSBoundParameters.ContainsKey('GameServer')) {
   $GameServerAddress, $GameServerPort = $GameServer.Split(':')
-  if($null -Eq $GameServerPort || $null -Eq $GameServerPort) {
+  if($null -Eq $GameServerPort -Or $null -Eq $GameServerPort) {
     Write-Error ">>> Invalid game server endpoint: $GameServer"
     return
   }
