@@ -33,7 +33,7 @@ Write-Output ">>> Temporary directory: $TemporaryDirectory"
 
 java -jar $FFDec -selectclass Game -format script:pcode -export script $TemporaryDirectory $InputFile
 
-$ScriptLocation = Join-Path $TemporaryDirectory 'scripts' 'Game.pcode'
+$ScriptLocation = Join-Path $TemporaryDirectory 'scripts/Game.pcode'
 $Script = Get-Content $ScriptLocation -Raw
 
 $MethodStartString = 'trait method QName(PackageNamespace(""),"activateAllModels")'
