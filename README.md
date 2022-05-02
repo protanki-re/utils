@@ -2,6 +2,26 @@
 
 A bunch of utilities for ProTanki.
 
+## [Patch-Library-LegacySocket.ps1](Patch-Library-LegacySocket.ps1)
+
+PowerShell script that patches `library.swf` (`http://s2.protanki-online.com/library.swf`) to use game and resource server configuration from `Prelauncher.swf`.  
+Requires [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-decompiler) to be installed.  
+The minimum supported game version is `library-20220501-221826`.
+
+| Argument         | Type      | Description                                                      | Default value                            |
+|------------------|-----------|------------------------------------------------------------------|------------------------------------------|
+| `InputFile`      | `string`  | Game SWF to patch                                                |                                          |
+| `OutputFile`     | `string`  | Patched SWF file                                                 |                                          |
+| `FFDec`          | `string`  | Path to `ffdec.jar` file                                         | `C:\Program Files (x86)\FFDec\ffdec.jar` |
+
+Example usage (PowerShell):
+```powershell
+./Patch-Library-Socket -InputFile 'library-original.swf' -OutputFile 'library.swf'
+
+# Use custom ffdec.jar
+./Patch-Library-Socket -InputFile 'library-original.swf' -OutputFile 'library.swf' -FFDec 'ffdec.jar'
+```
+
 ## [Patch-Library-Socket.ps1](Patch-Library-Socket.ps1)
 
 PowerShell script that patches `library.swf` (`http://s2.protanki-online.com/library.swf`) to use custom game and/or resource server.  
