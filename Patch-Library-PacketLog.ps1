@@ -172,6 +172,6 @@ Write-Output ">>> Patching SWF file (Network)..."
 java -jar $FFDec -replace $SwfIntermediateLocation $OutputFile scpacker.networking.Network $NetworkScriptLocation 6
 
 Write-Output ">>> Removing temporary directory..."
-# Remove-Item -Recurse -Force $TemporaryDirectory
+Remove-Item -Recurse -Force $TemporaryDirectory
 
 Write-Output ">>> Done! Output file: $OutputFile"
